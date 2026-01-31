@@ -16,7 +16,10 @@ const pool = require('./config/db');
 
 const app = express();
 
-app.use(cors({origin: `https://frontend-one-sandy-24.vercel.app`}));
+// app.use(cors({origin: `https://frontend-one-sandy-24.vercel.app`}));
+
+
+app.use(cors());
 
 
 // app.options("/api/(.*)", cors()); // ✅ Correct syntax for modern Express/Vercel environments
