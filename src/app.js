@@ -16,15 +16,7 @@ const pool = require('./config/db');
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: [
-//       "http://localhost:5173",
-//       "https://frontend-one-sandy-24.vercel.app"], // frontend
-//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//   })
-// );
+app.use(cors({origin: `https://frontend-one-sandy-24.vercel.app`}));
 
 
 // app.options("/api/(.*)", cors()); // ✅ Correct syntax for modern Express/Vercel environments
@@ -33,26 +25,8 @@ const app = express();
 
 
 // 1. Define allowed origins
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://frontend-one-sandy-24.vercel.app" // Your actual Vercel frontend
-];
 
-// 2. Configure CORS middleware
-app.use(cors({
-  origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
+
 
 // 3. Handle Preflight Globally (Safe Syntax)
 // app.options('*', cors());
