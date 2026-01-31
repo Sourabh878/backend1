@@ -29,7 +29,7 @@ app.use(
 
 // app.options("/api/(.*)", cors()); // ✅ Correct syntax for modern Express/Vercel environments
 // The :any part gives the wildcard a name, which satisfies the new safety rules
-app.options("/api/:any*", cors());
+// app.options("/api/:any*", cors());
 
 app.use(express.json());
 
