@@ -27,7 +27,7 @@ app.use(
 );
 
 
-app.options("/api/*", cors());
+app.options("/api/(.*)", cors()); // ✅ Correct syntax for modern Express/Vercel environments
 
 app.use(express.json());
 
