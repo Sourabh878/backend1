@@ -30,7 +30,7 @@ app.use('/api/auth', authRoutes);
 
 app.use('/api/admin', adminRoutes);
 
-app.use('/api/news',newsRoutes);
+app.use('/news',newsRoutes);
 
 app.use("/api/announcements", announcementRoutes);
 
