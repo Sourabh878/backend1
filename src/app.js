@@ -20,7 +20,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://your-frontend.vercel.app"], // frontend
+      "https://frontend-one-sandy-24.vercel.app"], // frontend
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
