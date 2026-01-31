@@ -55,7 +55,7 @@ app.use(cors({
 }));
 
 // 3. Handle Preflight Globally (Safe Syntax)
-app.options('*', cors());
+// app.options('*', cors());
 
 app.use(express.json());
 
