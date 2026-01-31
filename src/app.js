@@ -16,8 +16,34 @@ const pool = require('./config/db');
 
 const app = express();
 
-app.use(cors({...}));
+const cors = require("cors");
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://your-frontend.vercel.app"
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests like Postman / server-to-server
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("CORS not allowed"));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
+  })
+);
+
+// Handle preflight
 app.options("*", cors());
+
 
 app.use(express.json());
 
