@@ -16,17 +16,18 @@ const pool = require('./config/db');
 
 const app = express();
 
-
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://your-frontend.vercel.app"
-    ],
-    credentials: true
+      "https://your-frontend.vercel.app"], // frontend
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
+
+app.options("/api/*", cors());
 
 app.use(express.json());
 
